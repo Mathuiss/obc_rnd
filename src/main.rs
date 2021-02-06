@@ -1,4 +1,8 @@
 mod blockchain;
 mod control;
 
-fn main() {}
+use control::cli::model::BlockchainCli;
+
+fn main() {
+    let cli = BlockchainCli::new();
+}

@@ -1,2 +1,2 @@
-mod cli;
-mod rest;
+pub mod cli;
+pub mod rest;

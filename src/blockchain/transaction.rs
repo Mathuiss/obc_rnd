@@ -23,11 +23,11 @@ impl Transaction {
         self.recipient
     }
 
-    pub fn get_payload_type(&self) -> String {
-        self.payload_type
+    pub fn get_payload_type(&self) -> &String {
+        &self.payload_type
     }
 
-    pub fn get_json_payload(&self) -> String {
-        self.json_payload
+    pub fn get_json_payload(&self) -> &String {
+        &self.json_payload
     }
 }

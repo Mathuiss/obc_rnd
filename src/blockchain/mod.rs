@@ -1,4 +1,4 @@
-mod block;
-mod chain;
-mod header;
-mod transaction;
+pub mod block;
+pub mod chain;
+pub mod header;
+pub mod transaction;

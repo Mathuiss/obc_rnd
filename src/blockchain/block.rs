@@ -16,12 +16,12 @@ impl Block {
         }
     }
 
-    pub fn get_header(&self) -> Header {
-        self.header
+    pub fn get_header(&self) -> &Header {
+        &self.header
     }
 
-    pub fn get_transactions(&self) -> Vec<Transaction> {
-        self.transactions
+    pub fn get_transactions(&self) -> &Vec<Transaction> {
+        &self.transactions
     }
 
     pub fn get_hash(&self) -> [u8; 256] {
@@ -35,4 +35,6 @@ impl Block {
     pub fn add_transaction(&mut self, transaction: Transaction) {
         self.transactions.push(transaction);
     }
+
+    pub fn calculate_hash(&self) -> [u8; 256] {}
 }
