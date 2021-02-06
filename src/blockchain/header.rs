@@ -1,3 +1,5 @@
+use std::time::{SystemTime, UNIX_EPOCH};
+
 pub struct Header {
     id: u64,
     timestamp: u64,
@@ -7,10 +9,13 @@ pub struct Header {
 }
 
 impl Header {
-    pub fn new(id: u64, timestamp: u64, difficulty: u8, previous_hash: [u8; 256]) -> Self {
+    pub fn new(id: u64, difficulty: u8, previous_hash: [u8; 256]) -> Self {
         Header {
             id: id,
-            timestamp: timestamp,
+            timestamp: SystemTime::now()
+                .duration_since(UNIX_EPOCH)
+                .unwrap()
+                .as_secs(),
             difficulty: difficulty,
             nonce: 0,
             previous_hash: previous_hash,

@@ -1,5 +1,8 @@
+extern crate sha2;
+
 use crate::blockchain::header::Header;
 use crate::blockchain::transaction::Transaction;
+use sha2::{Digest, Sha256};
 
 pub struct Block {
     header: Header,
@@ -36,5 +39,7 @@ impl Block {
         self.transactions.push(transaction);
     }
 
-    pub fn calculate_hash(&self) -> [u8; 256] {}
+    pub fn calculate_hash(&self) -> [u8; 256] {
+        return [0x0; 256];
+    }
 }

@@ -18,22 +18,19 @@ impl BlockchainCli<'_> {
             let raw_text = self.read();
 
             // Parse command
-            let cmd = raw_text.split(' ').collect();
+            let cmd: Vec<&str> = raw_text.split(' ').collect();
 
             // Execute command
-            self.execute(cmd);
+            match cmd[0] {
+                "spawn" => println!("Spawning blockchain"),
+                "exit" => break,
+                _ => println!("Command not found. Enter [help] for more information."),
+            };
         }
     }
 
     fn read(&self) -> String {
         cli::view::print_msg("obc> ");
         cli::controller::read_input()
-    }
-
-    fn execute(&self, cmd: Vec<&str>) {
-        match cmd[0] {
-            "spawn" => println!("Spawning blockchain"),
-            _ => println!("Command not found. Enter [help] for more information."),
-        };
     }
 }
